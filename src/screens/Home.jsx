@@ -1,10 +1,19 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React from 'react';
+
+import { useNavigation } from '@react-navigation/native';
 
 export default function Home() {
+  const navigation = useNavigation();
+
   return (
-    <View>
-      <Text>Home</Text>
-    </View>
+    <View style={StyleSheet.container}>
+      <TouchableOpacity style={StyleSheet.navButton} onPress={() => navigation.navigate("Profile")}>
+        <Text>Perfil</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={StyleSheet.navButton} onPress={() => navigation.navigate("Contact")}>
+        <Text>Contato</Text>
+      </TouchableOpacity>
+    </View >
   )
 }
